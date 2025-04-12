@@ -1,0 +1,207 @@
+
+        <!DOCTYPE html>
+        <html lang="es">
+        <head>
+            <meta charset="UTF-8">
+            <title>Confirmar Pedido #35</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif; padding: 20px;
+                }
+                h2 { color: #2c3e50; }
+                table {
+                    width: 100%; border-collapse: collapse; margin-top: 20px;
+                }
+                table, th, td {
+                    border: 1px solid #ccc;
+                }
+                th, td {
+                    padding: 10px; text-align: center;
+                }
+                td[contenteditable="true"], .editable {
+                    background-color: #f9f9f9;
+                    border: 1px dashed #aaa;
+                    padding: 5px;
+                }
+                .btn {
+                    background-color: #28a745;
+                    color: white;
+                    padding: 10px 20px;
+                    text-decoration: none;
+                    display: inline-block;
+                    margin-top: 20px;
+                    border-radius: 5px;
+                    cursor: pointer;
+                }
+            </style>
+            <script>
+                function enviarWhatsApp() {
+                    const obra = document.getElementById('obra').innerText.trim();
+                    const filas = document.querySelectorAll('#tabla-materiales tbody tr');
+                    let mensaje = "Confirmo recepción del pedido N° 35 para la obra " + obra + ".\n\nMateriales recibidos:\n";
+
+                    filas.forEach(fila => {
+                        const celdas = fila.querySelectorAll('td');
+                        const descripcion = celdas[1]?.innerText.trim();
+                        const cantidad = celdas[2]?.innerText.trim();
+                        const unidad = celdas[3]?.innerText.trim();
+                        if (descripcion && cantidad && unidad) {
+                            mensaje += "- " + descripcion + ": " + cantidad + " " + unidad + "\n";
+                        }
+                    });
+
+                    const obs = document.getElementById('observaciones').innerText.trim();
+                    if (obs) {
+                        mensaje += "\nObservación: " + obs;
+                    }
+
+                    const mensajeEncoded = encodeURIComponent(mensaje);
+                    const telefono = "593993986320";
+                    const url = "https://wa.me/" + telefono + "?text=" + mensajeEncoded;
+
+                    window.location.href = url;
+                }
+            </script>
+        </head>
+        <body>
+            <h2>Confirmación de Pedido #35</h2>
+            <p><strong>Obra:</strong> <span id="obra" class="editable" contenteditable="true">COND FIRENZE 3886858</span></p>
+            <table id="tabla-materiales">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Descripción</th>
+                        <th>Cantidad</th>
+                        <th>Unidad</th>
+                    </tr>
+                </thead>
+                <tbody>
+        
+            <tr>
+                <td contenteditable="true">POLI0004</td>
+                <td contenteditable="true">POLITUBO 1/2</td>
+                <td contenteditable="true">1000</td>
+                <td contenteditable="true">MT</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">ABRA0004</td>
+                <td contenteditable="true">ABRAZADERA EMT 1/2</td>
+                <td contenteditable="true">1000</td>
+                <td contenteditable="true">UND</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">TORN0001</td>
+                <td contenteditable="true">TORNILLO 1X8</td>
+                <td contenteditable="true">2000</td>
+                <td contenteditable="true">UND</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">TACO0002</td>
+                <td contenteditable="true">TACO FISHER #6</td>
+                <td contenteditable="true">2000</td>
+                <td contenteditable="true">UND</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">CINT0001</td>
+                <td contenteditable="true">CINTA AISLANTE 20 Y </td>
+                <td contenteditable="true">20</td>
+                <td contenteditable="true">UND</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">CAJE0002</td>
+                <td contenteditable="true">CAJETIN OCTOGONAL PEQUEÑO</td>
+                <td contenteditable="true">300</td>
+                <td contenteditable="true">UND</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">POLI0007</td>
+                <td contenteditable="true">POLITUBO 3/4</td>
+                <td contenteditable="true">200</td>
+                <td contenteditable="true">MT</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">CABL0002</td>
+                <td contenteditable="true">CABLE  UNILAY No. 14</td>
+                <td contenteditable="true">500</td>
+                <td contenteditable="true">MMT-BLANCO</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">CABL0002</td>
+                <td contenteditable="true">CABLE  UNILAY No. 14</td>
+                <td contenteditable="true">500</td>
+                <td contenteditable="true">MT-AMA</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">CABL0002</td>
+                <td contenteditable="true">CABLE  UNILAY No. 14</td>
+                <td contenteditable="true">200</td>
+                <td contenteditable="true">MT-AZUL</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">CABL0002</td>
+                <td contenteditable="true">CABLE  UNILAY No. 14</td>
+                <td contenteditable="true">500</td>
+                <td contenteditable="true">MT-VERDE</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">CABL0001</td>
+                <td contenteditable="true">CABLE  UNILAY No. 12</td>
+                <td contenteditable="true">500</td>
+                <td contenteditable="true">MT-ROJO</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">CABL0001</td>
+                <td contenteditable="true">CABLE  UNILAY No. 12</td>
+                <td contenteditable="true">500</td>
+                <td contenteditable="true">MT-BLANCO</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">CABL0002</td>
+                <td contenteditable="true">CABLE  UNILAY No. 14</td>
+                <td contenteditable="true">300</td>
+                <td contenteditable="true">MT-ROJO</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">POLI0001</td>
+                <td contenteditable="true">POLITUBO 1</td>
+                <td contenteditable="true">200</td>
+                <td contenteditable="true">MT</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">ABRA0001</td>
+                <td contenteditable="true">ABRAZADERA EMT 1</td>
+                <td contenteditable="true">100</td>
+                <td contenteditable="true">UND</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">CAJE0001</td>
+                <td contenteditable="true">CAJETIN OCTOGONAL GRANDE</td>
+                <td contenteditable="true">200</td>
+                <td contenteditable="true">UND</td>
+            </tr>
+            
+                </tbody>
+            </table>
+            <p><strong>Observaciones:</strong></p>
+            <div id="observaciones" class="editable" contenteditable="true"></div>
+            <br>
+            <button class="btn" onclick="enviarWhatsApp()">Confirmar vía WhatsApp</button>
+        </body>
+        </html>
+        
