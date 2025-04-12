@@ -1,0 +1,237 @@
+
+        <!DOCTYPE html>
+        <html lang="es">
+        <head>
+            <meta charset="UTF-8">
+            <title>Confirmar Pedido #31</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif; padding: 20px;
+                }
+                h2 { color: #2c3e50; }
+                table {
+                    width: 100%; border-collapse: collapse; margin-top: 20px;
+                }
+                table, th, td {
+                    border: 1px solid #ccc;
+                }
+                th, td {
+                    padding: 10px; text-align: center;
+                }
+                td[contenteditable="true"], .editable {
+                    background-color: #f9f9f9;
+                    border: 1px dashed #aaa;
+                    padding: 5px;
+                }
+                .btn {
+                    background-color: #28a745;
+                    color: white;
+                    padding: 10px 20px;
+                    text-decoration: none;
+                    display: inline-block;
+                    margin-top: 20px;
+                    border-radius: 5px;
+                    cursor: pointer;
+                }
+            </style>
+            <script>
+                function enviarWhatsApp() {
+                    const obra = document.getElementById('obra').innerText.trim();
+                    const filas = document.querySelectorAll('#tabla-materiales tbody tr');
+                    let mensaje = "📦 *Confirmación de Pedido N.º 31*\n";
+                    mensaje += "🏗️ *Obra:* " + obra + "\n\n";
+                    mensaje += "📋 *Materiales Recibidos:*\n";
+
+                    filas.forEach(fila => {
+                        const celdas = fila.querySelectorAll('td');
+                        const descripcion = celdas[1]?.innerText.trim();
+                        const cantidad = celdas[2]?.innerText.trim();
+                        const unidad = celdas[3]?.innerText.trim();
+                        if (descripcion && cantidad && unidad) {
+                            mensaje += "🔹 " + descripcion + " — *" + cantidad + " " + unidad + "*\n";
+                        }
+                    });
+
+                    const obs = document.getElementById('observaciones').innerText.trim();
+                    if (obs) {
+                        mensaje += "\n📝 *Observaciones:* " + obs;
+                    }
+
+                    const mensajeEncoded = encodeURIComponent(mensaje);
+                    const telefono = "593993986320";
+                    const url = "https://wa.me/" + telefono + "?text=" + mensajeEncoded;
+
+                    window.location.href = url;
+                }
+            </script>
+        </head>
+        <body>
+            <h2>Confirmación de Pedido #31</h2>
+            <p><strong>Obra:</strong> <span id="obra" class="editable" contenteditable="true">CUAMNDALEON</span></p>
+            <table id="tabla-materiales">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Descripción</th>
+                        <th>Cantidad</th>
+                        <th>Unidad</th>
+                    </tr>
+                </thead>
+                <tbody>
+        
+            <tr>
+                <td contenteditable="true">BARR0005</td>
+                <td contenteditable="true">BARRA COBRE 1/8 X1</td>
+                <td contenteditable="true">50</td>
+                <td contenteditable="true">CM</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">PERN0040</td>
+                <td contenteditable="true">PERNO CADMIADO 1/2 X 1 1/2</td>
+                <td contenteditable="true">2</td>
+                <td contenteditable="true">UND</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">TERM0020</td>
+                <td contenteditable="true">TERMINAL COMP LARGO NO 2</td>
+                <td contenteditable="true">10</td>
+                <td contenteditable="true">UND</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">TERM0031</td>
+                <td contenteditable="true">TERMINAL CERRADO #10-12</td>
+                <td contenteditable="true">4</td>
+                <td contenteditable="true">UND</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">CABL0066</td>
+                <td contenteditable="true">CABLE  UNILAY No. 10</td>
+                <td contenteditable="true">15</td>
+                <td contenteditable="true">MT</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">CABL0019</td>
+                <td contenteditable="true">CABLE CU DESNUDO No. 2 </td>
+                <td contenteditable="true">10</td>
+                <td contenteditable="true">MT</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">PERN0064</td>
+                <td contenteditable="true">PERNO CADMIADO 3/8 X 1 1/2</td>
+                <td contenteditable="true">4</td>
+                <td contenteditable="true">UND</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">PERN0005</td>
+                <td contenteditable="true">PERNO CADMIADO 1/4 X 1 </td>
+                <td contenteditable="true">10</td>
+                <td contenteditable="true">UND</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">CINT0002</td>
+                <td contenteditable="true">CINTA AUTOFUNDENTE</td>
+                <td contenteditable="true">1</td>
+                <td contenteditable="true">UND</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">CINT0001</td>
+                <td contenteditable="true">CINTA AISLANTE 20 Y </td>
+                <td contenteditable="true">2</td>
+                <td contenteditable="true">NEGRA-UN</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">CINT0001</td>
+                <td contenteditable="true">CINTA AISLANTE 20 Y </td>
+                <td contenteditable="true">1</td>
+                <td contenteditable="true">ROJA-AZUL-BLANCA</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">GABI0003</td>
+                <td contenteditable="true">GABINETE PESADO 60X40X20</td>
+                <td contenteditable="true">1</td>
+                <td contenteditable="true">UND</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">BREA0042</td>
+                <td contenteditable="true">BREAKER CAJA MOLD REGULABLE 3P 280-400A</td>
+                <td contenteditable="true">1</td>
+                <td contenteditable="true">UND</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">CABL0006</td>
+                <td contenteditable="true">CABLE CENTEFLEX No. 250MCM</td>
+                <td contenteditable="true">48</td>
+                <td contenteditable="true">MT</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">TERM0026</td>
+                <td contenteditable="true">TERMINAL OJO COMP CU 250 MCM</td>
+                <td contenteditable="true">13</td>
+                <td contenteditable="true">UND</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">TIRAF0005</td>
+                <td contenteditable="true">TIRAFONDO 1-1/2</td>
+                <td contenteditable="true">10</td>
+                <td contenteditable="true">UND</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">TERMO0023</td>
+                <td contenteditable="true">TERMO ENCOGIBLE AZUL 25.4MM</td>
+                <td contenteditable="true">1</td>
+                <td contenteditable="true">MT</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">TERMO0024</td>
+                <td contenteditable="true">TERMO ENCOGIBLE BLANCO 25.4MM</td>
+                <td contenteditable="true">1</td>
+                <td contenteditable="true">MT</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">TERMO0027</td>
+                <td contenteditable="true">TERMO ENCOGIBLE NEGRO 25.4MM</td>
+                <td contenteditable="true">1</td>
+                <td contenteditable="true">MT</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">TERMO0025</td>
+                <td contenteditable="true">TERMO ENCOGIBLE ROJO 25.4MM</td>
+                <td contenteditable="true">1</td>
+                <td contenteditable="true">MT</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">TACO0003</td>
+                <td contenteditable="true">TACO FISHER #10</td>
+                <td contenteditable="true">10</td>
+                <td contenteditable="true">UND</td>
+            </tr>
+            
+                </tbody>
+            </table>
+            <p><strong>Observaciones:</strong></p>
+            <div id="observaciones" class="editable" contenteditable="true"></div>
+            <br>
+            <button class="btn" onclick="enviarWhatsApp()">Confirmar vía WhatsApp</button>
+        </body>
+        </html>
+        
