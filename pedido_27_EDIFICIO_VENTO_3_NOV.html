@@ -1,0 +1,274 @@
+
+        <!DOCTYPE html>
+        <html lang="es">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Confirmar Pedido #27</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    padding: 20px;
+                    font-size: 16px;
+                    background-color: #f8f9fa;
+                }
+                h2 {
+                    color: #2c3e50;
+                    text-align: center;
+                    font-size: 24px;
+                }
+                table {
+                    width: 100%;
+                    border-collapse: collapse;
+                    margin-top: 20px;
+                }
+                th, td {
+                    border: 1px solid #ccc;
+                    padding: 10px;
+                    text-align: center;
+                    font-size: 14px;
+                }
+                td[contenteditable="true"], .editable {
+                    background-color: #fdfdfd;
+                    border: 1px dashed #aaa;
+                    padding: 5px;
+                }
+                .btn {
+                    background-color: #28a745;
+                    color: white;
+                    padding: 12px 25px;
+                    text-decoration: none;
+                    display: inline-block;
+                    margin-top: 25px;
+                    border: none;
+                    border-radius: 6px;
+                    font-size: 16px;
+                    cursor: pointer;
+                }
+                @media (max-width: 600px) {
+                    body {
+                        padding: 10px;
+                        font-size: 15px;
+                    }
+                    th, td {
+                        font-size: 13px;
+                        padding: 8px;
+                    }
+                    h2 {
+                        font-size: 20px;
+                    }
+                    .btn {
+                        width: 100%;
+                        font-size: 16px;
+                    }
+                }
+            </style>
+            <script>
+                function enviarWhatsApp() {
+                    const obra = document.getElementById('obra').innerText.trim();
+                    const filas = document.querySelectorAll('#tabla-materiales tbody tr');
+                    let mensaje = "📦 *Confirmación de Pedido N.º 27*\n";
+                    mensaje += "🏗️ *Obra:* " + obra + "\n\n";
+                    mensaje += "📋 *Materiales Recibidos:*\n";
+
+                    filas.forEach(fila => {
+                        const celdas = fila.querySelectorAll('td');
+                        const descripcion = celdas[1]?.innerText.trim();
+                        const cantidad = celdas[2]?.innerText.trim();
+                        const unidad = celdas[3]?.innerText.trim();
+                        if (descripcion && cantidad && unidad) {
+                            mensaje += "🔹 " + descripcion + " — *" + cantidad + " " + unidad + "*\n";
+                        }
+                    });
+
+                    const obs = document.getElementById('observaciones').innerText.trim();
+                    if (obs) {
+                        mensaje += "\n📝 *Observaciones:* " + obs;
+                    }
+
+                    const mensajeEncoded = encodeURIComponent(mensaje);
+                    const telefono = "593993986320";
+                    const url = "https://wa.me/" + telefono + "?text=" + mensajeEncoded;
+
+                    window.location.href = url;
+                }
+            </script>
+        </head>
+        <body>
+            <h2>Confirmación de Pedido #27</h2>
+            <p><strong>Obra:</strong> <span id="obra" class="editable" contenteditable="true">EDIFICIO VENTO 3 NOV</span></p>
+            <table id="tabla-materiales">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Descripción</th>
+                        <th>Cantidad</th>
+                        <th>Unidad</th>
+                    </tr>
+                </thead>
+                <tbody>
+        
+            <tr>
+                <td contenteditable="true">POLI0004</td>
+                <td contenteditable="true">POLITUBO 1/2</td>
+                <td contenteditable="true">800</td>
+                <td contenteditable="true">MT</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">POLI0007</td>
+                <td contenteditable="true">POLITUBO 3/4</td>
+                <td contenteditable="true">600</td>
+                <td contenteditable="true">MT</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">POLI0001</td>
+                <td contenteditable="true">POLITUBO 1</td>
+                <td contenteditable="true">600</td>
+                <td contenteditable="true">MT</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">ABRA0001</td>
+                <td contenteditable="true">ABRAZADERA EMT 1</td>
+                <td contenteditable="true">300</td>
+                <td contenteditable="true">UND</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">AUTO0001</td>
+                <td contenteditable="true">AUTOPERFORANTES</td>
+                <td contenteditable="true">400</td>
+                <td contenteditable="true">UND</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">CHAN0002</td>
+                <td contenteditable="true">CHANEL 3MT CAL 14 GALV</td>
+                <td contenteditable="true">4</td>
+                <td contenteditable="true">UND</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">ABRA0006</td>
+                <td contenteditable="true">ABRAZADERA EMT 3/4</td>
+                <td contenteditable="true">200</td>
+                <td contenteditable="true">UND</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">TACO0003</td>
+                <td contenteditable="true">TACO FISHER #10</td>
+                <td contenteditable="true">200</td>
+                <td contenteditable="true">UND</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">TIRAF0004</td>
+                <td contenteditable="true">TIRAFONDO 3</td>
+                <td contenteditable="true">200</td>
+                <td contenteditable="true">UND</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">BROC0016</td>
+                <td contenteditable="true">BROCA 1/4 P/ ROTOMARTILLO</td>
+                <td contenteditable="true">4</td>
+                <td contenteditable="true">UND</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">BROC0018</td>
+                <td contenteditable="true">BROCA 3/8 P/ ROTOMARTILLO</td>
+                <td contenteditable="true">2</td>
+                <td contenteditable="true">UND</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">BROC0003</td>
+                <td contenteditable="true">BROCA METAL 1/4</td>
+                <td contenteditable="true">2</td>
+                <td contenteditable="true">UND</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">DISCO0001</td>
+                <td contenteditable="true">DISCO DE CORTE </td>
+                <td contenteditable="true">4</td>
+                <td contenteditable="true">UND</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">ACEI0001</td>
+                <td contenteditable="true">ACEITE WD40 </td>
+                <td contenteditable="true">1</td>
+                <td contenteditable="true">UND</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">ALAM0002</td>
+                <td contenteditable="true">ALAMBRE GALV No. 18</td>
+                <td contenteditable="true">8</td>
+                <td contenteditable="true">Lb</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">SPRAY0001</td>
+                <td contenteditable="true">SPRAY VARIOS COLORES</td>
+                <td contenteditable="true">5</td>
+                <td contenteditable="true">UND</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">VARI0002</td>
+                <td contenteditable="true">VARILLA COPERWELD 5/8 X 1.8 ALTA CAMADA</td>
+                <td contenteditable="true">10</td>
+                <td contenteditable="true">UND</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">ELEC0005</td>
+                <td contenteditable="true">ELECTRODO QUIMICO COMPACTO GRAFITO OHM (JMONTERO)</td>
+                <td contenteditable="true">1</td>
+                <td contenteditable="true">UND</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">CAPS0002</td>
+                <td contenteditable="true">CAPSULA No. 90 PLUS 20</td>
+                <td contenteditable="true">16</td>
+                <td contenteditable="true">UND</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">000000000</td>
+                <td contenteditable="true">SACOS DE TIERRA</td>
+                <td contenteditable="true">24</td>
+                <td contenteditable="true">UND</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">CEME0003
+</td>
+                <td contenteditable="true">CEMENTO GEM 25-A</td>
+                <td contenteditable="true">22</td>
+                <td contenteditable="true">UND</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">CABL0019</td>
+                <td contenteditable="true">CABLE CU DESNUDO No. 2 </td>
+                <td contenteditable="true">40+55+25</td>
+                <td contenteditable="true">MT</td>
+            </tr>
+            
+                </tbody>
+            </table>
+            <p><strong>Observaciones:</strong></p>
+            <div id="observaciones" class="editable" contenteditable="true"></div>
+            <br>
+            <button class="btn" onclick="enviarWhatsApp()">✅ Confirmar vía WhatsApp</button>
+        </body>
+        </html>
+        

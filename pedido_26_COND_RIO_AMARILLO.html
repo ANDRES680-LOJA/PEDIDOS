@@ -1,0 +1,253 @@
+
+        <!DOCTYPE html>
+        <html lang="es">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Confirmar Pedido #26</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    padding: 20px;
+                    font-size: 16px;
+                    background-color: #f8f9fa;
+                }
+                h2 {
+                    color: #2c3e50;
+                    text-align: center;
+                    font-size: 24px;
+                }
+                table {
+                    width: 100%;
+                    border-collapse: collapse;
+                    margin-top: 20px;
+                }
+                th, td {
+                    border: 1px solid #ccc;
+                    padding: 10px;
+                    text-align: center;
+                    font-size: 14px;
+                }
+                td[contenteditable="true"], .editable {
+                    background-color: #fdfdfd;
+                    border: 1px dashed #aaa;
+                    padding: 5px;
+                }
+                .btn {
+                    background-color: #28a745;
+                    color: white;
+                    padding: 12px 25px;
+                    text-decoration: none;
+                    display: inline-block;
+                    margin-top: 25px;
+                    border: none;
+                    border-radius: 6px;
+                    font-size: 16px;
+                    cursor: pointer;
+                }
+                @media (max-width: 600px) {
+                    body {
+                        padding: 10px;
+                        font-size: 15px;
+                    }
+                    th, td {
+                        font-size: 13px;
+                        padding: 8px;
+                    }
+                    h2 {
+                        font-size: 20px;
+                    }
+                    .btn {
+                        width: 100%;
+                        font-size: 16px;
+                    }
+                }
+            </style>
+            <script>
+                function enviarWhatsApp() {
+                    const obra = document.getElementById('obra').innerText.trim();
+                    const filas = document.querySelectorAll('#tabla-materiales tbody tr');
+                    let mensaje = "📦 *Confirmación de Pedido N.º 26*\n";
+                    mensaje += "🏗️ *Obra:* " + obra + "\n\n";
+                    mensaje += "📋 *Materiales Recibidos:*\n";
+
+                    filas.forEach(fila => {
+                        const celdas = fila.querySelectorAll('td');
+                        const descripcion = celdas[1]?.innerText.trim();
+                        const cantidad = celdas[2]?.innerText.trim();
+                        const unidad = celdas[3]?.innerText.trim();
+                        if (descripcion && cantidad && unidad) {
+                            mensaje += "🔹 " + descripcion + " — *" + cantidad + " " + unidad + "*\n";
+                        }
+                    });
+
+                    const obs = document.getElementById('observaciones').innerText.trim();
+                    if (obs) {
+                        mensaje += "\n📝 *Observaciones:* " + obs;
+                    }
+
+                    const mensajeEncoded = encodeURIComponent(mensaje);
+                    const telefono = "593993986320";
+                    const url = "https://wa.me/" + telefono + "?text=" + mensajeEncoded;
+
+                    window.location.href = url;
+                }
+            </script>
+        </head>
+        <body>
+            <h2>Confirmación de Pedido #26</h2>
+            <p><strong>Obra:</strong> <span id="obra" class="editable" contenteditable="true">COND_RIO AMARILLO</span></p>
+            <table id="tabla-materiales">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Descripción</th>
+                        <th>Cantidad</th>
+                        <th>Unidad</th>
+                    </tr>
+                </thead>
+                <tbody>
+        
+            <tr>
+                <td contenteditable="true">AMAR0006</td>
+                <td contenteditable="true">AMARRAS PLASTICAS DE 20CM NEGRA</td>
+                <td contenteditable="true">5</td>
+                <td contenteditable="true">FUNDAS</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">CABL0002</td>
+                <td contenteditable="true">CABLE  UNILAY No. 14</td>
+                <td contenteditable="true">100</td>
+                <td contenteditable="true">MT-VERDE</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">CABL0002</td>
+                <td contenteditable="true">CABLE  UNILAY No. 14</td>
+                <td contenteditable="true">100</td>
+                <td contenteditable="true">MT-BLANCO</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">CINT0001</td>
+                <td contenteditable="true">CINTA AISLANTE 20 Y </td>
+                <td contenteditable="true">5</td>
+                <td contenteditable="true">UND</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">TORN0048</td>
+                <td contenteditable="true">TORNILLO MADERA 3/4</td>
+                <td contenteditable="true">100</td>
+                <td contenteditable="true">UND</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">SIER001</td>
+                <td contenteditable="true">SIERRA SANDFLEX 12" X 1/2 X24</td>
+                <td contenteditable="true">4</td>
+                <td contenteditable="true">UND</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">CINT0005</td>
+                <td contenteditable="true">CINTA DOBLE FAZ</td>
+                <td contenteditable="true">10</td>
+                <td contenteditable="true">UND</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">CANC0001</td>
+                <td contenteditable="true">CANCAMO 1X1/4</td>
+                <td contenteditable="true">30</td>
+                <td contenteditable="true">UND</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">CADE0004</td>
+                <td contenteditable="true">CADENA DECORATIVA DORADA 1.5M X 2.0M</td>
+                <td contenteditable="true">2</td>
+                <td contenteditable="true">Lb</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">CABL0016</td>
+                <td contenteditable="true">CABLE CONCENTRICO 2X14 CENTELSA</td>
+                <td contenteditable="true">15</td>
+                <td contenteditable="true">MT</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">PREN0001</td>
+                <td contenteditable="true">PRENSA STOPA PG 11 (18.6-5-10mm)</td>
+                <td contenteditable="true">12</td>
+                <td contenteditable="true">UND</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">BREA0009</td>
+                <td contenteditable="true">BREAKER QO 240</td>
+                <td contenteditable="true">14</td>
+                <td contenteditable="true">UND</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">SENS0002</td>
+                <td contenteditable="true">SENSOR DE MOVIEMIENTO EMPOTRADO 360 EVLITE</td>
+                <td contenteditable="true">7</td>
+                <td contenteditable="true">UND</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">TOMA0001</td>
+                <td contenteditable="true">TOMA TRIFASICO PARA CAJETIN 32A</td>
+                <td contenteditable="true">42</td>
+                <td contenteditable="true">UND</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">TOMA0004</td>
+                <td contenteditable="true">TOMA SIMPLE PATA CHINA </td>
+                <td contenteditable="true">27</td>
+                <td contenteditable="true">UND</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">CABL0019</td>
+                <td contenteditable="true">CABLE CU DESNUDO No. 2 </td>
+                <td contenteditable="true">5</td>
+                <td contenteditable="true">MT</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">CAPS0001</td>
+                <td contenteditable="true">CAPSULA No. 115 PLUS 20</td>
+                <td contenteditable="true">1</td>
+                <td contenteditable="true">UND</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">CEME0003
+</td>
+                <td contenteditable="true">CEMENTO GEM 25-A</td>
+                <td contenteditable="true">1</td>
+                <td contenteditable="true">UND</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">000000000000</td>
+                <td contenteditable="true">SACO DE TIERRA NEGRA</td>
+                <td contenteditable="true">1</td>
+                <td contenteditable="true">UND</td>
+            </tr>
+            
+                </tbody>
+            </table>
+            <p><strong>Observaciones:</strong></p>
+            <div id="observaciones" class="editable" contenteditable="true"></div>
+            <br>
+            <button class="btn" onclick="enviarWhatsApp()">✅ Confirmar vía WhatsApp</button>
+        </body>
+        </html>
+        
