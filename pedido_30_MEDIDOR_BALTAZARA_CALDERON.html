@@ -1,0 +1,155 @@
+
+        <!DOCTYPE html>
+        <html lang="es">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Confirmar Pedido #30</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    padding: 20px;
+                    font-size: 16px;
+                    background-color: #f8f9fa;
+                }
+                h2 {
+                    color: #2c3e50;
+                    text-align: center;
+                    font-size: 24px;
+                }
+                table {
+                    width: 100%;
+                    border-collapse: collapse;
+                    margin-top: 20px;
+                }
+                th, td {
+                    border: 1px solid #ccc;
+                    padding: 10px;
+                    text-align: center;
+                    font-size: 14px;
+                }
+                td[contenteditable="true"], .editable {
+                    background-color: #fdfdfd;
+                    border: 1px dashed #aaa;
+                    padding: 5px;
+                }
+                .btn {
+                    background-color: #28a745;
+                    color: white;
+                    padding: 12px 25px;
+                    text-decoration: none;
+                    display: inline-block;
+                    margin-top: 25px;
+                    border: none;
+                    border-radius: 6px;
+                    font-size: 16px;
+                    cursor: pointer;
+                }
+                @media (max-width: 600px) {
+                    body {
+                        padding: 10px;
+                        font-size: 15px;
+                    }
+                    th, td {
+                        font-size: 13px;
+                        padding: 8px;
+                    }
+                    h2 {
+                        font-size: 20px;
+                    }
+                    .btn {
+                        width: 100%;
+                        font-size: 16px;
+                    }
+                }
+            </style>
+            <script>
+                function enviarWhatsApp() {
+                    const obra = document.getElementById('obra').innerText.trim();
+                    const filas = document.querySelectorAll('#tabla-materiales tbody tr');
+                    let mensaje = "📦 *Confirmación de Pedido N.º 30*\n";
+                    mensaje += "🏗️ *Obra:* " + obra + "\n\n";
+                    mensaje += "📋 *Materiales Recibidos:*\n";
+
+                    filas.forEach(fila => {
+                        const celdas = fila.querySelectorAll('td');
+                        const descripcion = celdas[1]?.innerText.trim();
+                        const cantidad = celdas[2]?.innerText.trim();
+                        const unidad = celdas[3]?.innerText.trim();
+                        if (descripcion && cantidad && unidad) {
+                            mensaje += "🔹 " + descripcion + " — *" + cantidad + " " + unidad + "*\n";
+                        }
+                    });
+
+                    const obs = document.getElementById('observaciones').innerText.trim();
+                    if (obs) {
+                        mensaje += "\n📝 *Observaciones:* " + obs;
+                    }
+
+                    const mensajeEncoded = encodeURIComponent(mensaje);
+                    const telefono = "593993986320";
+                    const url = "https://wa.me/" + telefono + "?text=" + mensajeEncoded;
+
+                    window.location.href = url;
+                }
+            </script>
+        </head>
+        <body>
+            <h2>Confirmación de Pedido #30</h2>
+            <p><strong>Obra:</strong> <span id="obra" class="editable" contenteditable="true">MEDIDOR BALTAZARA CALDERON</span></p>
+            <table id="tabla-materiales">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Descripción</th>
+                        <th>Cantidad</th>
+                        <th>Unidad</th>
+                    </tr>
+                </thead>
+                <tbody>
+        
+            <tr>
+                <td contenteditable="true">TABL0152</td>
+                <td contenteditable="true">TABLERO LUZ 2 MEDIDORES-AMI</td>
+                <td contenteditable="true">1</td>
+                <td contenteditable="true">UND</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">CABL0019</td>
+                <td contenteditable="true">CABLE CU DESNUDO No. 2 </td>
+                <td contenteditable="true">3</td>
+                <td contenteditable="true">MT</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">VARI0011</td>
+                <td contenteditable="true">VARILLA cu 1.2m x 1/2 c/conector INTELLI</td>
+                <td contenteditable="true">1</td>
+                <td contenteditable="true">UND</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">POLI0004</td>
+                <td contenteditable="true">POLITUBO 1/2</td>
+                <td contenteditable="true">3</td>
+                <td contenteditable="true">MT</td>
+            </tr>
+            
+            <tr>
+                <td contenteditable="true">CONE0035</td>
+                <td contenteditable="true">PERNO HENDIDO# 4/0</td>
+                <td contenteditable="true">1</td>
+                <td contenteditable="true">UND</td>
+            </tr>
+            
+                </tbody>
+            </table>
+            <p><strong>Observaciones:</strong></p>
+            <div id="observaciones" class="editable" contenteditable="true">EL  TABLERO DE  MEDIDOR  YA  FUE  SOLICITADO
+ COMBO</div>
+            <br>
+            <button class="btn" onclick="enviarWhatsApp()">✅ Confirmar vía WhatsApp</button>
+        </body>
+        </html>
+        
